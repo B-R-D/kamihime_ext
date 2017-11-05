@@ -19,12 +19,15 @@ const main = () => {
     window.open("http://www.dmm.co.jp/netgame/social/-/gadgets/=/app_id=242584/", "");
   });
 
-  changeColor("helperstart");
-  $("#helperstart").click(function(){
-    window.open("https://r.kamihimeproject.net", "");
+  changeColor("status");
+  $("#status").click(function(){
+    window.open("https://r.kamihimeproject.net/status/", "");
   });
   
-  changeColor("setting");
+  changeColor("item");
+  $("#item").click(function(){
+    window.open("https://r.kamihimeproject.net/item/", "");
+  });
 }
 
 $(document).ready(main);

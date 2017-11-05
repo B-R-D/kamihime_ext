@@ -22,8 +22,12 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://r.kamihimeproject.net/"],
-      "js": ["js/jquery-3.2.1.min.js", "js/basic.js"]
+      "matches": ["https://r.kamihimeproject.net/status/"],
+      "js": ["js/jquery-3.2.1.min.js", "js/status.js"]
+    },
+    {
+      "matches": ["https://r.kamihimeproject.net/item/"],
+      "js": ["js/jquery-3.2.1.min.js", "js/item.js"]
     }
   ]
 }

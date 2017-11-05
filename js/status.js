@@ -45,7 +45,7 @@ var questInfo = {
 const updatePageDataBasic = () => {
   //重写网页CSS信息
   $("head").html(`
-    <title>神姬助手-详情页</title>
+    <title>神姬助手-状态详情</title>
     <style type="text/css" rel="stylesheet">
       * {
         margin: 0;
@@ -191,7 +191,7 @@ const retrieveInfo = type => {
 
 $("html").html(`
   <head>
-    <title>神姬助手-详情页</title>
+    <title>神姬助手-状态详情</title>
   </head>
   <body>
   </body>
