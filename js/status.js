@@ -76,11 +76,6 @@ const updatePageDataBasic = () => {
   $("body").html(`
     <table class="all_table">
       <tr>
-        <th>神姬助手</th>
-      </tr>
-    </table>
-    <table class="all_table">
-      <tr>
         <td>继承者：${userName}</td>
         <td id="rank">Rank：${basicInfo.rank}</td>
         <td id="exp">EXP：${basicInfo.exp}/${basicInfo.exp+basicInfo.next_exp} (${Math.round(basicInfo.exp/(basicInfo.exp+basicInfo.next_exp)*10000)/100}%)</td>
@@ -184,7 +179,7 @@ const retrieveInfo = type => {
       updatePageDataAdvanced();
 	  },
 	  error(jqXHR, status, errorThrown) {
-		  console.log(`An error occurred when retrieve ${type} infomation.`);
+		  console.log(`An error occurred while retrieving ${type}.`);
 	  }
   });
 }
