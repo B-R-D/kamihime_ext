@@ -1,5 +1,7 @@
 "use_strict"
 
+//import itemData from "./data.js";
+
 const CureInfo = "https://r.kamihimeproject.net/v1/a_items?json=%7B%22type%22%3A%22cure_evolution%22%7D";
 const TreasureInfo = "https://r.kamihimeproject.net/v1/a_items?json=%7B%22type%22%3A%22treasure%22%7D";
 const TicketInfo = "https://r.kamihimeproject.net/v1/a_items?json=%7B%22type%22%3A%22ticket%22%2C%22zero_omit%22%3Afalse%7D";
@@ -63,6 +65,11 @@ const updatePageData = () => {
           temp = temp + `<td>${cureInfo[i].name}</td>`;
         }
         return temp;
+      case 2:
+        for(let i=0; i<cureInfo.length; ++i) {
+          temp = temp +`<td>${cureInfo[i].pic}</td>`;
+        }
+        return temp;
       case 3:
         for(let i=0; i<cureInfo.length; ++i) {
           temp = temp + `<td>${cureInfo[i].num}</td>`;
@@ -77,6 +84,8 @@ const updateCureInfo = res => {
   let max_record_count = res.max_record_count;
   for(let i=0; i<max_record_count; ++i) {
     cureInfo[i] = new Item(res.data[i].name, res.data[i].num);
+    //从item.js导入图片网址信息
+    //cureInfo[i].pic = itemData(cureInfo[i].name);
   }
 }
 
