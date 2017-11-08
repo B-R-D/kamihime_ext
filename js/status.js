@@ -43,77 +43,26 @@ var questInfo = {
 
 //更新页面函数
 const updatePageDataBasic = () => {
-  //重写网页CSS信息
-  $("head").html(`
-    <title>神姬助手-状态详情</title>
-    <style type="text/css" rel="stylesheet">
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      table {
-        table-layout: fixed;
-      }
-      #rank {
-        width: 110px;
-      }
-      #exp {
-        width: 285px;
-      }
-      #ap, #bp {
-        width: 155px;
-      }
-      .weapon {
-        width: 160px;
-      }
-      .all_table {
-        width: 610px;
-      }
-    </style>
-  `);
-  //重写网页body信息
-  $("body").html(`
-    <table class="all_table">
-      <tr>
-        <td>继承者：${userName}</td>
-        <td id="rank">Rank：${basicInfo.rank}</td>
-        <td id="exp">EXP：${basicInfo.exp}/${basicInfo.exp+basicInfo.next_exp} (${Math.round(basicInfo.exp/(basicInfo.exp+basicInfo.next_exp)*10000)/100}%)</td>
-      </tr>
-    </table>
-    <br>
-    <table class="all_table">
-      <tr>
-        <td id="ap">AP：${pointsInfo.ap}/${pointsInfo.max_ap}<br>${pointsInfo.ap_recover_time}</td>
-        <td id="bp"><span>BP：${pointsInfo.bp}/5<br>${pointsInfo.bp_recover_time}</span></td>
-        <td id="aksquest">今日饰品任务剩余${questInfo.accessory_quest_remaining_challenge_count}次</td>
-      </tr>
-    </table>
-    <br>
-    <table class="all_table">
-      <tr>
-        <td>金钱：</td><td>${moneyInfo.gem}</td>
-        <td>魔宝石：</td><td>${moneyInfo.stone}</td>
-      </tr>
-      <tr>
-        <td>英灵点：</td><td>${moneyInfo.job_point}</td>
-        <td>炼狱英灵点：</td><td>${moneyInfo.purgatory_job_point}</td>
-      </tr>
-      <tr>
-        <td>饰品币：</td><td>${moneyInfo.accessory_point}</td>
-        <td>幻兽币：</td><td>${moneyInfo.summon_orb}</td>
-      </tr>
-    </table>
-    <br>
-    <table class="all_table">
-      <tr>
-        <td>神姬数：${basicInfo.character_num}</td>
-        <td class="weapon">武器数：${basicInfo.weapon_num}/${basicInfo.max_weapon_num}</td>
-        <td class="weapon">幻兽数：${basicInfo.summon_num}/${basicInfo.max_summon_num}</td>
-        <td class="weapon">饰品数：${basicInfo.accessory_num}/${basicInfo.max_accessory_num}</td>
-      </tr>
-    </table>
-  `);
+  //更新基本信息
+  $("#userName").text(`继承者：${userName}`);
+  $("#rank").text(`Rank：${basicInfo.rank}`);
+  $("#exp").text(`EXP：${basicInfo.exp}/${basicInfo.exp+basicInfo.next_exp} (${Math.round(basicInfo.exp/(basicInfo.exp+basicInfo.next_exp)*10000)/100}%)`);
+  //更新战斗点数
+  $("#ap").html(`AP：${pointsInfo.ap}/${pointsInfo.max_ap}<br>${pointsInfo.ap_recover_time}`);
+  $("#bp").html(`<span>BP：${pointsInfo.bp}/5<br>${pointsInfo.bp_recover_time}</span>`);
+  $("#aksquest").text(`今日饰品任务剩余${questInfo.accessory_quest_remaining_challenge_count}次`);
+  //更新金钱信息
+  $("#gem").text(`${moneyInfo.gem}`);
+  $("#stone").text(`${moneyInfo.stone}`);
+  $("#job_point").text(`${moneyInfo.job_point}`);
+  $("#purgatory_job_point").text(`${moneyInfo.purgatory_job_point}`);
+  $("#accessory_point").text(`${moneyInfo.accessory_point}`);
+  $("#summon_orb").text(`${moneyInfo.summon_orb}`);
+  //更新装备信息
+  $("#character_num").text(`神姬数：${basicInfo.character_num}`);
+  $("#weapon_num").text(`武器数：${basicInfo.weapon_num}/${basicInfo.max_weapon_num}`);
+  $("#summon_num").text(`幻兽数：${basicInfo.summon_num}/${basicInfo.max_summon_num}`);
+  $("#accessory_num").text(`饰品数：${basicInfo.accessory_num}/${basicInfo.max_accessory_num}`);
 }
 
 const updatePageDataAdvanced = () => {
@@ -171,27 +120,32 @@ const updateQuestInfo = res => {
 //获取信息的AJAX函数，根据传入字符串来调用相应的更新函数
 const retrieveInfo = type => {
   $.ajax({
-    url: eval(type),
+    url: type,
 	  type: 'GET',
 	  success(response) {
-      eval(`update${type}(response)`);
+      switch(type) {
+        case "https://r.kamihimeproject.net/v1/a_players/me":
+          updateBasicInfo(response);
+          break;
+        case "https://r.kamihimeproject.net/v1/a_players/me/quest_points":
+          updatePointsInfo(response);
+          break;
+        case "https://r.kamihimeproject.net/v1/a_players/me/currency":
+          updateMoneyInfo(response);
+          break;
+        case "https://r.kamihimeproject.net/v1/a_quest_info":
+          updateQuestInfo(response);
+      }
       updatePageDataBasic();
       updatePageDataAdvanced();
 	  },
 	  error(jqXHR, status, errorThrown) {
-		  console.log(`An error occurred while retrieving ${type}.`);
+		  console.log(`An error occurred while retrieving data.`);
 	  }
   });
 }
 
-$("html").html(`
-  <head>
-    <title>神姬助手-状态详情</title>
-  </head>
-  <body>
-  </body>
-`);
-retrieveInfo("BasicInfo");
-retrieveInfo("PointsInfo");
-retrieveInfo("MoneyInfo");
-retrieveInfo("QuestInfo");
+retrieveInfo(BasicInfo);
+retrieveInfo(PointsInfo);
+retrieveInfo(MoneyInfo);
+retrieveInfo(QuestInfo);

@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "name": "神姫助手",
-  "version": "0.1.0",
-  "description": "DMM网页游戏“神姬计划”的辅助工具。",
+  "version": "0.2.0",
+  "description": "网页游戏“神姬计划”的辅助工具。",
   "icons": {
     "16": "icons/16.png",
     "48": "icons/48.png",
@@ -20,14 +20,8 @@
     "scripts": ["js/jquery-3.2.1.min.js","js/background.js"],
     "persistent": false
   },
-  "content_scripts": [
-    {
-      "matches": ["https://r.kamihimeproject.net/status/"],
-      "js": ["js/jquery-3.2.1.min.js", "js/status.js"]
-    },
-    {
-      "matches": ["https://r.kamihimeproject.net/item/"],
-      "js": ["js/jquery-3.2.1.min.js", "js/item.js"]
-    }
+  "devtools_page": "devtools.html",
+  "permissions": [
+    "https://r.kamihimeproject.net/"
   ]
 }

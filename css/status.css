@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+table {
+  table-layout: fixed;
+}
+#rank {
+  width: 110px;
+}
+#exp {
+  width: 285px;
+}
+#ap, #bp {
+  width: 155px;
+}
+.weapon {
+  width: 160px;
+}
+.all_table {
+  width: 610px;
+}

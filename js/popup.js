@@ -18,16 +18,7 @@ const main = () => {
   $("#gamestart").click(function(){
     window.open("http://www.dmm.co.jp/netgame/social/-/gadgets/=/app_id=242584/", "");
   });
-
-  changeColor("status");
-  $("#status").click(function(){
-    window.open("https://r.kamihimeproject.net/status/", "");
-  });
-  
-  changeColor("item");
-  $("#item").click(function(){
-    window.open("https://r.kamihimeproject.net/item/", "");
-  });
+  changeColor("setting");
 }
 
 $(document).ready(main);
