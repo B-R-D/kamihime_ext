@@ -67,7 +67,9 @@ const updatePageDataBasic = () => {
 
 const updatePageDataAdvanced = () => {
   //更新Boss战状态
-  if(questInfo.has_new_raid_request) {
+  if(questInfo.has_unverified) {
+    $("#bp").css("color","grey");
+  } else if(questInfo.has_new_raid_request) {
     $("#bp").css("color","red");
   }
 }
@@ -145,7 +147,15 @@ const retrieveInfo = type => {
   });
 }
 
-retrieveInfo(BasicInfo);
-retrieveInfo(PointsInfo);
-retrieveInfo(MoneyInfo);
-retrieveInfo(QuestInfo);
+const main = () => {
+  retrieveInfo(BasicInfo);
+  retrieveInfo(PointsInfo);
+  retrieveInfo(MoneyInfo);
+  retrieveInfo(QuestInfo);
+  //这是全局刷新，其实还可以局部刷新，也就是点击每一块区域时自动发送那一块区域的AJAX请求并重写那块区域的数据
+  $("body").click(function(){
+    window.location.reload();
+  });
+}
+
+$(document).ready(main);
