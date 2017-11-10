@@ -6,18 +6,34 @@
 table {
   table-layout: fixed;
 }
+#userName {
+  width: 180px;
+  text-align: center;
+}
 #rank {
-  width: 110px;
+  width: 50px;
+  text-align: right;
 }
 #exp {
-  width: 285px;
+  text-align: center;
 }
-#ap, #bp {
-  width: 155px;
+#bp {
+  cursor: pointer;
+}
+.points {
+  text-align: center;
+  width: 110px;
+}
+.money {
+  text-align: right;
+  width: 100px;
 }
 .weapon {
-  width: 160px;
+  text-align: center;
+  width: 100px;
 }
+/*
 .all_table {
   width: 610px;
 }
+*/

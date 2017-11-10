@@ -38,11 +38,11 @@ var questInfo = {
 const updateRaidData = () => {
   //更新Boss战状态
   if(questInfo.has_unverified) {
-    $("#bp").css("color","grey");
+    $("#bp").css("background-color","Gainsboro");
   } else if(questInfo.has_new_raid_request) {
-    $("#bp").css("color","red");
+    $("#bp").css("background-color","#FF5857");
   } else
-    $("#bp").css("color","black");
+    $("#bp").css("background-color","transparent");
 }
 
 //更新基本信息
@@ -58,13 +58,13 @@ const updateBasicInfo = res => {
   basicInfo.max_summon_num = res.max_summon_num;
   basicInfo.accessory_num = res.accessory_num;
   basicInfo.max_accessory_num = res.max_accessory_num;
-  $("#userName").text(`继承者：${userName}`);
-  $("#rank").text(`Rank：${basicInfo.rank}`);
-  $("#exp").text(`EXP：${basicInfo.exp}/${basicInfo.exp+basicInfo.next_exp} (${Math.round(basicInfo.exp/(basicInfo.exp+basicInfo.next_exp)*10000)/100}%)`);
-  $("#character_num").text(`神姬数：${basicInfo.character_num}`);
-  $("#weapon_num").text(`武器数：${basicInfo.weapon_num}/${basicInfo.max_weapon_num}`);
-  $("#summon_num").text(`幻兽数：${basicInfo.summon_num}/${basicInfo.max_summon_num}`);
-  $("#accessory_num").text(`饰品数：${basicInfo.accessory_num}/${basicInfo.max_accessory_num}`);
+  $("#userName").text(userName);
+  $("#rank").text(basicInfo.rank);
+  $("#exp").text(`${basicInfo.exp}/${basicInfo.exp+basicInfo.next_exp} (${Math.round(basicInfo.exp/(basicInfo.exp+basicInfo.next_exp)*10000)/100}%)`);
+  $("#character_num").text(basicInfo.character_num);
+  $("#weapon_num").text(`${basicInfo.weapon_num}/${basicInfo.max_weapon_num}`);
+  $("#summon_num").text(`${basicInfo.summon_num}/${basicInfo.max_summon_num}`);
+  $("#accessory_num").text(`${basicInfo.accessory_num}/${basicInfo.max_accessory_num}`);
 }
 
 //更新战斗点数信息
@@ -74,8 +74,10 @@ const updatePointsInfo = res => {
   pointsInfo.bp = res.bp;
   pointsInfo.ap_recover_time = res.ap_recover_time;
   pointsInfo.bp_recover_time = res.bp_recover_time;
-  $("#ap").html(`AP：${pointsInfo.ap}/${pointsInfo.max_ap}<br>${pointsInfo.ap_recover_time}`);
-  $("#bp").html(`BP：${pointsInfo.bp}/5<br>${pointsInfo.bp_recover_time}`);
+  $("#ap").html(`${pointsInfo.ap}/${pointsInfo.max_ap}`);
+  $("#bp").html(`${pointsInfo.bp}/5`);
+  $("#ap_recover_time").text(pointsInfo.ap_recover_time);
+  $("#bp_recover_time").text(pointsInfo.bp_recover_time);
 }
 
 //更新金钱类信息
@@ -99,7 +101,7 @@ const updateQuestInfo = res => {
   questInfo.has_new_raid_request = res.has_new_raid_request;
   questInfo.has_unverified = res.has_unverified;
   questInfo.accessory_quest_remaining_challenge_count = res.accessory_quest_remaining_challenge_count;
-  $("#aksquest").text(`今日饰品任务剩余${questInfo.accessory_quest_remaining_challenge_count}次`);
+  $("#aksquest").text(`饰品任务剩余${questInfo.accessory_quest_remaining_challenge_count}次`);
   updateRaidData();
   chrome.runtime.sendMessage({
       "has_new_raid_request": questInfo.has_new_raid_request,
@@ -107,24 +109,19 @@ const updateQuestInfo = res => {
     }, function(response){});
 }
 
-/*
-//获取信息的AJAX函数，根据传入字符串来调用相应的更新函数
-const retrieveInfo = type => {
+//用于手动刷新当前RAID状态
+const retrieveRaidInfo = () => {
   $.ajax({
-    url: type,
+    url: "https://r.kamihimeproject.net/v1/a_quest_info",
 	  type: 'GET',
 	  success(response) {
-          updateQuestInfo(response);
-      }
-      updatePageDataBasic();
-      updatePageDataAdvanced();
-	  },
+      updateQuestInfo(response);
+    },
 	  error(jqXHR, status, errorThrown) {
-		  console.log(`An error occurred while retrieving data in ${type}.`);
-	  }
+		  console.log(`An error occurred while retrieving RAID Boss data.`);
+    }
   });
 }
-*/
 
 const main = () => {
   //监听来自devtool的数据信息
@@ -142,6 +139,10 @@ const main = () => {
       case "QuestInfo":
         updateQuestInfo(message);
     }
+  });
+  
+  $("body").click(function(){
+    retrieveRaidInfo();
   });
 }
 
