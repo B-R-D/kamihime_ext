@@ -14,13 +14,13 @@
       "38": "icons/38.png"
     },
     "default_title": "神姫助手",
-    "default_popup": "popup.html"
+    "default_popup": "html/popup.html"
   },
   "background": {
     "scripts": ["js/jquery-3.2.1.min.js","js/background.js"],
     "persistent": false
   },
-  "devtools_page": "devtools.html",
+  "devtools_page": "html/devtools.html",
   "permissions": [
     "https://r.kamihimeproject.net/"
   ]
