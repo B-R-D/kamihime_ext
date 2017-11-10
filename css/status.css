@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+table {
+  table-layout: fixed;
+}
+#userName {
+  width: 180px;
+  text-align: center;
+}
+#rank {
+  width: 50px;
+  text-align: right;
+}
+#exp {
+  text-align: center;
+}
+#bp {
+  cursor: pointer;
+}
+.points {
+  text-align: center;
+  width: 110px;
+}
+.money {
+  text-align: right;
+  width: 100px;
+}
+.weapon {
+  text-align: center;
+  width: 100px;
+}
+/*
+.all_table {
+  width: 610px;
+}
+*/

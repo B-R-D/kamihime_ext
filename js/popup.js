@@ -18,12 +18,6 @@ const main = () => {
   $("#gamestart").click(function(){
     window.open("http://www.dmm.co.jp/netgame/social/-/gadgets/=/app_id=242584/", "");
   });
-
-  changeColor("helperstart");
-  $("#helperstart").click(function(){
-    window.open("https://r.kamihimeproject.net", "");
-  });
-  
   changeColor("setting");
 }
 
