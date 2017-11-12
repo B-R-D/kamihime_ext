@@ -21,6 +21,8 @@ table {
 }
 #exp {
   text-align: center;
+  border: 1px solid #996600;
+  position: relative;
 }
 #bp {
   cursor: pointer;
