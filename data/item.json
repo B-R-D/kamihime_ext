@@ -1,0 +1,21 @@
+{
+  "cureItem":
+  [
+    {
+      "name": "エリクサー",
+      "url": "https://static-r.kamihimeproject.net/resources/pc/normal/42/72/2c93eebb4a79e124b1d2417aebcfe728aa88bb67f2034272.jpg"
+    },
+    {
+      "name": "ハーフエリクサー",
+      "url": "https://static-r.kamihimeproject.net/resources/pc/normal/a1/ce/2c93eebb4a79e124b1d2417aebcfe728c61247bb95bba1ce.jpg"
+    },
+    {
+      "name": "エナジーリーフ",
+      "url": "https://static-r.kamihimeproject.net/resources/pc/normal/a9/b6/2c93eebb4a79e124b1d2417aebcfe7283b1ed4e7b7c6a9b6.jpg"
+    },
+    {
+      "name": "エナジーシード",
+      "url": "https://static-r.kamihimeproject.net/resources/pc/normal/83/43/2c93eebb4a79e124b1d2417aebcfe728a869d53909698343.jpg"
+    }
+  ]
+}

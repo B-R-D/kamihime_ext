@@ -1,6 +1,26 @@
 "use_strict"
 
-//声明各分类对象
+//声明道具数组和道具类
+var cureInfo = []
+var treasureInfo = [];
+var ticketInfo = [];
+class Item {
+  constructor(name, pic, num) {
+    this._name = name;
+    this._pic = pic;
+    this._num = num;
+  }
+  get name() {
+    return this._name;
+  }
+  get pic() {
+    return this._pic;
+  }
+  get num() {
+    return this._num;
+  }
+}
+//声明基本信息对象
 var userName;
 var basicInfo = {
   rank: "",
@@ -33,16 +53,6 @@ var questInfo = {
   has_new_raid_request: false,
   has_unverified: false,
   accessory_quest_remaining_challenge_count: 0
-}
-
-const updateRaidData = () => {
-  //更新Boss战状态
-  if(questInfo.has_unverified) {
-    $("#bp").css("background-color","Gainsboro");
-  } else if(questInfo.has_new_raid_request) {
-    $("#bp").css("background-color","#FF5857");
-  } else
-    $("#bp").css("background-color","transparent");
 }
 
 //更新基本信息
@@ -109,6 +119,17 @@ const updateQuestInfo = res => {
     }, function(response){});
 }
 
+//更新Boss战状态
+const updateRaidData = () => {
+  if(questInfo.has_unverified) {
+    $("#bp").css("background-color","Gainsboro");
+    $("")
+  } else if(questInfo.has_new_raid_request) {
+    $("#bp").css("background-color","#FF5857");
+  } else
+    $("#bp").css("background-color","transparent");
+}
+
 //用于手动刷新当前RAID状态
 const retrieveRaidInfo = () => {
   $.ajax({
@@ -120,6 +141,49 @@ const retrieveRaidInfo = () => {
 	  error(jqXHR, status, errorThrown) {
 		  console.log(`An error occurred while retrieving RAID Boss data.`);
     }
+  });
+}
+
+//道具信息相关
+//获取处理各类道具信息
+const updateCureInfo = res => {
+  let temp;
+  $.getJSON("../data/item.json", function(item){
+    //双重循环，送来的每个name分别与数据库中的name比对
+    //若相等则建立新对象，若不相等则继续比对数据库中下一个name
+    //如果比对数据库中的最后一个都不相等，则断定为新数据
+    //继续外层循环下一个送来的name
+    for(let i=0; i<res.data.length; ++i) {
+      for(let j=0; j<item.cureItem.length; ++j) {
+        if(item.cureItem[j].name === res.data[i].name) {
+          temp = new Item(item.cureItem[j].name, item.cureItem[j].url, res.data[i].num);
+          cureInfo.push(temp);
+          break;
+        }
+        else {
+          if(j === item.cureItem.length - 1) {
+            temp = new Item(item.cureItem[j].name, "undefined", res.data[i].num);
+            cureInfo.push(temp);
+          }
+          else
+            continue;
+        }
+      }
+    }
+    $("tr.pic").html(function(m) {
+      let temp;
+      for(let i=0; i<cureInfo.length; ++i) {
+        temp = temp +`<td><img src="${cureInfo[i].pic}" title="${cureInfo[i].name}"></td>`;
+      }
+      return temp;
+    });
+    $("tr.num").html(function(m) {
+      let temp;
+      for(let i=0; i<cureInfo.length; ++i) {
+        temp = temp + `<td>${cureInfo[i].num}</td>`;
+      }
+      return temp;
+    });
   });
 }
 
@@ -138,10 +202,14 @@ const main = () => {
         break;
       case "QuestInfo":
         updateQuestInfo(message);
+        break;
+      case "CureInfo":
+        updateCureInfo(message);
+        break;
     }
   });
   
-  $("body").click(function(){
+  $("#bp").click(function(){
     retrieveRaidInfo();
   });
 }
