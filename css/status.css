@@ -3,8 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  background-color: DarkSlateGrey;
+}
 table {
   table-layout: fixed;
+  font-size: 1.0em;
+  color: white;
 }
 #userName {
   width: 180px;
@@ -20,20 +25,37 @@ table {
 #bp {
   cursor: pointer;
 }
+#basicInfo {
+  background-color: #333333;
+  border-radius: 15px;
+  padding: 0px 7px;
+}
+#basicInfo, #itemInfo {
+  display: inline-block;
+  vertical-align: top;
+  margin: 5px 5px;
+}
+#basicInfo table {
+  margin: 7px 0px;
+  white-space: nowrap;
+}
+.space {
+  width: 16px;
+}
 .points {
   text-align: center;
-  width: 110px;
+  width: 90px;
 }
 .money {
   text-align: right;
-  width: 100px;
+  width: 80px;
+  margin: 0px 30px 0px 0px;
 }
-.weapon {
+.weapon, .num {
   text-align: center;
   width: 100px;
 }
-/*
-.all_table {
-  width: 610px;
+.pic img {
+  width: 80px;
+  height: 80px;
 }
-*/

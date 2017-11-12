@@ -5,10 +5,12 @@ const BasicInfo = "https://r.kamihimeproject.net/v1/a_players/me";
 const PointsInfo = "https://r.kamihimeproject.net/v1/a_players/me/quest_points";
 const MoneyInfo = "https://r.kamihimeproject.net/v1/a_players/me/currency";
 const QuestInfo = "https://r.kamihimeproject.net/v1/a_quest_info"; 
+const CureInfo = "https://r.kamihimeproject.net/v1/a_items?json=%7B%22type%22%3A%22cure_evolution"
 
 chrome.devtools.panels.create('Kamihime_ext', 'icon/16.png', '../html/status.html', function(panel){});
 
 chrome.devtools.network.onRequestFinished.addListener(function(request) {
+  //检查获取各种信息
   switch(request.request.url) {
     case BasicInfo:
       //获取应答包主体
@@ -68,5 +70,24 @@ chrome.devtools.network.onRequestFinished.addListener(function(request) {
           "accessory_quest_remaining_challenge_count": obj.accessory_quest_remaining_challenge_count
         }, function(response){});
       });
+      break;
+  }
+  //检查获取道具信息
+  if(request.request.url.includes(CureInfo)) {
+    request.getContent(function(res) {
+      let obj = JSON.parse(res);
+      //组装发送对象的字符串形式头
+      let temp = `{"header": "CureInfo","data": [`;
+      for(let i=0; i<obj.data.length; ++i) {
+        if(i === obj.data.length - 1)
+          temp = temp + `{"name": "${obj.data[i].name}","num": "${obj.data[i].num}"}`;
+        else
+          temp = temp + `{"name": "${obj.data[i].name}","num": "${obj.data[i].num}"},`;
+      }
+      //组装字符串形式尾
+      temp = temp + `]}`;
+      let temp_obj = JSON.parse(temp);
+      chrome.runtime.sendMessage(temp_obj, function(response){});
+    });
   }
 });
