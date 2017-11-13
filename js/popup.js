@@ -13,12 +13,13 @@ const changeColor = ele => {
 }
 
 const main = () => {
-  
   changeColor("gamestart");
   $("#gamestart").click(function(){
     window.open("http://www.dmm.co.jp/netgame/social/-/gadgets/=/app_id=242584/", "");
   });
   changeColor("setting");
+  $("#gamestart").text(chrome.i18n.getMessage("gameStart"));
+  $("#setting").text(chrome.i18n.getMessage("setting"));
 }
 
 $(document).ready(main);

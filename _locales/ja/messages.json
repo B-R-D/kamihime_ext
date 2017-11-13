@@ -1,0 +1,14 @@
+{
+  "pluginTitle":{
+    "message": "神姫助手"
+  },
+  "pluginDesc": {
+    "message": "DMMゲーム『神姫PROJECT』の補助ツール。"
+  },
+  "gameStart": {
+    "message": "ゲーム開始"
+  },
+  "setting": {
+    "message": "オプション"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "pluginTitle":{
+    "message": "Kamihime Assistant"
+  },
+  "pluginDesc": {
+    "message": "An assistant tool for DMM Game Kamihime Project."
+  },
+  "gameStart": {
+    "message": "Game Start"
+  },
+  "setting": {
+    "message": "Option"
+  }
+}
