@@ -10,5 +10,44 @@
   },
   "setting": {
     "message": "オプション"
+  },
+  "userName": {
+    "message": "継承者"
+  },
+  "gem": {
+    "message": "ジェム"
+  },
+  "stone": {
+    "message": "魔宝石"
+  },
+  "jobPoint": {
+    "message": "EP"
+  },
+  "purgatoryJobPoint": {
+    "message": "煉獄EP"
+  },
+  "accessoryPoint": {
+    "message": "アクセP"
+  },
+  "summonOrb": {
+    "message": "幻獣オーブ"
+  },
+  "characterNum": {
+    "message": "神姫数"
+  },
+  "weaponNum": {
+    "message": "ウェポン数"
+  },
+  "summonNum": {
+    "message": "幻獣数"
+  },
+  "accessoryNum": {
+    "message": "アクセ数"
+  },
+  "accessoryQuestCount": {
+    "message": "アクセクエあと"
+  },
+  "accessoryCount": {
+    "message": "回"
   }
 }
