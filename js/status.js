@@ -71,10 +71,10 @@ const updateBasicInfo = res => {
   basicInfo.max_accessory_num = res.max_accessory_num;
   $("#userName").text(userName);
   $("#rank").text(basicInfo.rank);
+  //动态修改经验条长度
   exp_width = `${Math.round(basicInfo.exp/(basicInfo.exp+basicInfo.next_exp)*100)}%`;
-  $("#exp").html(`<div style="height:22px; width:${exp_width}; background-color:#996600; position:absolute"></div><span style="position:relative">${basicInfo.exp}/${basicInfo.exp+basicInfo.next_exp} (${Math.round(basicInfo.exp/(basicInfo.exp+basicInfo.next_exp)*10000)/100}%)</span>`);
-
-
+  $("#exp").children("div").css("width",exp_width);
+  $("#exp").children("span").text(`${basicInfo.exp}/${basicInfo.exp+basicInfo.next_exp} (${Math.round(basicInfo.exp/(basicInfo.exp+basicInfo.next_exp)*10000)/100}%)`);
   $("#character_num").text(basicInfo.character_num);
   $("#weapon_num").text(`${basicInfo.weapon_num}/${basicInfo.max_weapon_num}`);
   $("#summon_num").text(`${basicInfo.summon_num}/${basicInfo.max_summon_num}`);
@@ -127,7 +127,6 @@ const updateQuestInfo = res => {
 const updateRaidData = () => {
   if(questInfo.has_unverified) {
     $("#bp").css("background-color","Gainsboro");
-    $("")
   } else if(questInfo.has_new_raid_request) {
     $("#bp").css("background-color","#FF5857");
   } else

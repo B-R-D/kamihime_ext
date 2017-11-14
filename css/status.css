@@ -24,6 +24,14 @@ table {
   border: 1px solid #996600;
   position: relative;
 }
+#exp div {
+  height: 22px;
+  background-color: #996600;
+  position: absolute;
+}
+#exp span {
+  position: relative;
+}
 #bp {
   cursor: pointer;
 }
