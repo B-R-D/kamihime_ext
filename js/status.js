@@ -57,6 +57,7 @@ var questInfo = {
 
 //更新基本信息
 const updateBasicInfo = res => {
+  let exp_width;
   userName = res.name;
   basicInfo.rank = res.rank;
   basicInfo.exp = res.exp;
@@ -70,7 +71,10 @@ const updateBasicInfo = res => {
   basicInfo.max_accessory_num = res.max_accessory_num;
   $("#userName").text(userName);
   $("#rank").text(basicInfo.rank);
-  $("#exp").text(`${basicInfo.exp}/${basicInfo.exp+basicInfo.next_exp} (${Math.round(basicInfo.exp/(basicInfo.exp+basicInfo.next_exp)*10000)/100}%)`);
+  //动态修改经验条长度
+  exp_width = `${Math.round(basicInfo.exp/(basicInfo.exp+basicInfo.next_exp)*100)}%`;
+  $("#exp").children("div").css("width",exp_width);
+  $("#exp").children("span").text(`${basicInfo.exp}/${basicInfo.exp+basicInfo.next_exp} (${Math.round(basicInfo.exp/(basicInfo.exp+basicInfo.next_exp)*10000)/100}%)`);
   $("#character_num").text(basicInfo.character_num);
   $("#weapon_num").text(`${basicInfo.weapon_num}/${basicInfo.max_weapon_num}`);
   $("#summon_num").text(`${basicInfo.summon_num}/${basicInfo.max_summon_num}`);
@@ -111,7 +115,7 @@ const updateQuestInfo = res => {
   questInfo.has_new_raid_request = res.has_new_raid_request;
   questInfo.has_unverified = res.has_unverified;
   questInfo.accessory_quest_remaining_challenge_count = res.accessory_quest_remaining_challenge_count;
-  $("#aksquest").text(`饰品任务剩余${questInfo.accessory_quest_remaining_challenge_count}次`);
+  $("#aksquest").children("span").text(questInfo.accessory_quest_remaining_challenge_count);
   updateRaidData();
   chrome.runtime.sendMessage({
       "has_new_raid_request": questInfo.has_new_raid_request,
@@ -123,7 +127,6 @@ const updateQuestInfo = res => {
 const updateRaidData = () => {
   if(questInfo.has_unverified) {
     $("#bp").css("background-color","Gainsboro");
-    $("")
   } else if(questInfo.has_new_raid_request) {
     $("#bp").css("background-color","#FF5857");
   } else
@@ -132,15 +135,17 @@ const updateRaidData = () => {
 
 //用于手动刷新当前RAID状态
 const retrieveRaidInfo = () => {
-  $.ajax({
-    url: "https://r.kamihimeproject.net/v1/a_quest_info",
-	  type: 'GET',
-	  success(response) {
-      updateQuestInfo(response);
-    },
-	  error(jqXHR, status, errorThrown) {
-		  console.log(`An error occurred while retrieving RAID Boss data.`);
-    }
+  $("#bp").click(function(){
+    $.ajax({
+      url: "https://r.kamihimeproject.net/v1/a_quest_info",
+	    type: 'GET',
+	    success(response) {
+        updateQuestInfo(response);
+      },
+  	  error(jqXHR, status, errorThrown) {
+	  	  console.log(`An error occurred while retrieving RAID Boss data.`);
+      }
+    });
   });
 }
 
@@ -187,8 +192,17 @@ const updateCureInfo = res => {
   });
 }
 
-const main = () => {
-  //监听来自devtool的数据信息
+//i18n本地化替换
+const localizer = () => {
+  let htmlStr = $("body").html().toString();
+  let localeStr = htmlStr.replace(/__MSG_(\w+)__/g,function(message, str) {
+    return chrome.i18n.getMessage(str);
+  });
+  $("body").html(localeStr);
+}
+
+//监听来自devtool的数据信息
+const devtoolTransfer = () => {
   chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
     switch(message.header) {
       case "BasicInfo":
@@ -208,10 +222,12 @@ const main = () => {
         break;
     }
   });
-  
-  $("#bp").click(function(){
-    retrieveRaidInfo();
-  });
+}
+
+const main = () => {
+  localizer();
+  devtoolTransfer();
+  retrieveRaidInfo();
 }
 
 $(document).ready(main);

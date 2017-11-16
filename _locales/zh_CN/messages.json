@@ -1,0 +1,53 @@
+{
+  "pluginTitle":{
+    "message": "神姬助手"
+  },
+  "pluginDesc": {
+    "message": "网页游戏“神姬计划”的辅助工具。"
+  },
+  "gameStart": {
+    "message": "开始游戏"
+  },
+  "setting": {
+    "message": "设置"
+  },
+  "userName": {
+    "message": "继承者"
+  },
+  "gem": {
+    "message": "金币"
+  },
+  "stone": {
+    "message": "魔宝石"
+  },
+  "jobPoint": {
+    "message": "英灵点"
+  },
+  "purgatoryJobPoint": {
+    "message": "炼狱点"
+  },
+  "accessoryPoint": {
+    "message": "饰品币"
+  },
+  "summonOrb": {
+    "message": "幻兽币"
+  },
+  "characterNum": {
+    "message": "神姬数"
+  },
+  "weaponNum": {
+    "message": "武器数"
+  },
+  "summonNum": {
+    "message": "幻兽数"
+  },
+  "accessoryNum": {
+    "message": "饰品数"
+  },
+  "accessoryQuestCount": {
+    "message": "饰品任务剩余"
+  },
+  "accessoryCount": {
+    "message": "次"
+  }
+}

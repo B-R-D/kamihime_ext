@@ -1,0 +1,53 @@
+{
+  "pluginTitle":{
+    "message": "Kamihime Assistant"
+  },
+  "pluginDesc": {
+    "message": "An assistant tool for DMM Game Kamihime Project."
+  },
+  "gameStart": {
+    "message": "Game Start"
+  },
+  "setting": {
+    "message": "Option"
+  },
+  "userName": {
+    "message": "継承者"
+  },
+  "gem": {
+    "message": "Gem"
+  },
+  "stone": {
+    "message": "Stone"
+  },
+  "jobPoint": {
+    "message": "EP"
+  },
+  "purgatoryJobPoint": {
+    "message": "PEP"
+  },
+  "accessoryPoint": {
+    "message": "AccessoryP"
+  },
+  "summonOrb": {
+    "message": "Summon Orb"
+  },
+  "characterNum": {
+    "message": "Kamihime"
+  },
+  "weaponNum": {
+    "message": "Weapon"
+  },
+  "summonNum": {
+    "message": "Summon"
+  },
+  "accessoryNum": {
+    "message": "Accessory"
+  },
+  "accessoryQuestCount": {
+    "message": "Accessory quest remaining "
+  },
+  "accessoryCount": {
+    "message": " times"
+  }
+}
