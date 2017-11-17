@@ -1,4 +1,4 @@
-[[简体中文]](https://github.com/B-R-D/kamihime_ext/blob/master/README-zh-CN.md) | [[日本語]]() | [[English]](https://github.com/B-R-D/kamihime_ext/blob/master/README.md)
+[[简体中文]](https://github.com/B-R-D/kamihime_ext/blob/master/README-zh-CN.md) | [[English]](https://github.com/B-R-D/kamihime_ext/blob/master/README.md)
 
 # Kamihime Assistant
 KA is an assistant tool for page game Kamihime Project.
@@ -13,7 +13,7 @@ When player switches game page, KA can inform player whether Raid battle availab
 
 **WARNING: The implementation of refreshing Raid information manually is by retrieving data INITIATIVELY, what may cause your account or IP banned by server. DO NOT USE IT IF YOU DO NOT TRUST IT!**
 
-## Install and Usage
+## Installing and Usage
 
 ### Running Environment
 Please keep your browser newest before installing. Because of some APIs which only available in Chrome devtool, the performance on other platform(such as Firefox, Edge, etc.) is not ensured.
