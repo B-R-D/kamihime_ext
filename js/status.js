@@ -58,6 +58,7 @@ var questInfo = {
 //更新基本信息
 const updateBasicInfo = res => {
   let exp_width;
+  let exp_height;
   userName = res.name;
   basicInfo.rank = res.rank;
   basicInfo.exp = res.exp;
@@ -71,9 +72,10 @@ const updateBasicInfo = res => {
   basicInfo.max_accessory_num = res.max_accessory_num;
   $("#userName").text(userName);
   $("#rank").text(basicInfo.rank);
-  //动态修改经验条长度
+  //动态修改经验条长度高度
   exp_width = `${Math.round(basicInfo.exp/(basicInfo.exp+basicInfo.next_exp)*100)}%`;
-  $("#exp").children("div").css("width",exp_width);
+  exp_height = $("#exp").height() + 2;
+  $("#exp").children("div").css({"width":exp_width, "height":exp_height});
   $("#exp").children("span").text(`${basicInfo.exp}/${basicInfo.exp+basicInfo.next_exp} (${Math.round(basicInfo.exp/(basicInfo.exp+basicInfo.next_exp)*10000)/100}%)`);
   $("#character_num").text(basicInfo.character_num);
   $("#weapon_num").text(`${basicInfo.weapon_num}/${basicInfo.max_weapon_num}`);
