@@ -16,7 +16,7 @@ When players switch game page, KA can inform players whether Raid battles are av
 ## Installing and Usage
 
 ### Running Environment
-Please keep your browser updated to the latest version before installing. Some APIs are only available in Chrome devtool, which means the performance on other platforms (such as Firefox, Edge and etc.) are not ensured.
+Please keep your browser up-to-date before installing. Some APIs are only available in Chrome devtool, which means the performance on other platforms (such as Firefox, Edge and etc.) are not ensured.
 #### Windows
 Download and unpack [this](https://github.com/B-R-D/kamihime_ext/releases) ZIP archive. Then click the button "Load unpacked extension..." on left-top of the Extensions page and locate the folder that contains KA.
 #### Linux
