@@ -4,10 +4,34 @@
 const BasicInfo = "https://r.kamihimeproject.net/v1/a_players/me";
 const PointsInfo = "https://r.kamihimeproject.net/v1/a_players/me/quest_points";
 const MoneyInfo = "https://r.kamihimeproject.net/v1/a_players/me/currency";
-const QuestInfo = "https://r.kamihimeproject.net/v1/a_quest_info"; 
-const CureInfo = "https://r.kamihimeproject.net/v1/a_items?json=%7B%22type%22%3A%22cure_evolution"
+const QuestInfo = "https://r.kamihimeproject.net/v1/a_quest_info";
+const ItemInfo = "https://r.kamihimeproject.net/v1/a_items";
 
 chrome.devtools.panels.create('Kamihime_ext', 'icon/16.png', '../html/status.html', function(panel){});
+
+//根据不同种类的数据组装道具数据包并发送
+const retrieveItemData = type => {
+  $.ajax({
+    url: `${ItemInfo}?json=%7B%22type%22%3A%22${type}%22%7D`,
+    type: "GET",
+    success(response) {
+      //组装发送对象
+      let temp = `{"header": "${type}","data": [`;
+      for(let i=0; i<response.data.length; ++i) {
+        if(i === response.data.length - 1)
+          temp = temp + `{"name": "${response.data[i].name}","num": "${response.data[i].num}"}`;
+        else
+          temp = temp + `{"name": "${response.data[i].name}","num": "${response.data[i].num}"},`;
+      }
+      temp = temp + `]}`;
+      let temp_obj = JSON.parse(temp);
+      chrome.runtime.sendMessage(temp_obj, function(response){});
+    },
+    error(jqXHR, status, errorThrown) {
+	  	  console.log(`An error occurred while retrieving ${type} data.`);
+      }
+  });
+}
 
 chrome.devtools.network.onRequestFinished.addListener(function(request) {
   //检查获取各种信息
@@ -72,22 +96,13 @@ chrome.devtools.network.onRequestFinished.addListener(function(request) {
       });
       break;
   }
-  //检查获取道具信息
-  if(request.request.url.includes(CureInfo)) {
-    request.getContent(function(res) {
-      let obj = JSON.parse(res);
-      //组装发送对象的字符串形式头
-      let temp = `{"header": "CureInfo","data": [`;
-      for(let i=0; i<obj.data.length; ++i) {
-        if(i === obj.data.length - 1)
-          temp = temp + `{"name": "${obj.data[i].name}","num": "${obj.data[i].num}"}`;
-        else
-          temp = temp + `{"name": "${obj.data[i].name}","num": "${obj.data[i].num}"},`;
-      }
-      //组装字符串形式尾
-      temp = temp + `]}`;
-      let temp_obj = JSON.parse(temp);
-      chrome.runtime.sendMessage(temp_obj, function(response){});
-    });
+});
+
+//接收获取道具信息
+chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
+  if(message === "retrieveiteminfo") {
+    retrieveItemData("cure_evolution");
+    retrieveItemData("treasure");
+    retrieveItemData("ticket");
   }
 });

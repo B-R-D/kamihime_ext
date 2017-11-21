@@ -17,5 +17,79 @@
       "name": "エナジーシード",
       "url": "https://static-r.kamihimeproject.net/resources/pc/normal/83/43/2c93eebb4a79e124b1d2417aebcfe728a869d53909698343.jpg"
     }
+  ],
+  "treasureItem":
+  [
+    {
+      "name": "風の龍骨",
+      "url": "https://static-r.kamihimeproject.net/resources/pc/normal/51/df/2c93eebb4a79e124b1d2417aebcfe728da7c1be91fa951df.jpg"
+    },
+    {
+      "name": "翠風の龍骨",
+      "url": "https://static-r.kamihimeproject.net/resources/pc/normal/f7/11/2c93eebb4a79e124b1d2417aebcfe7284c133b5b058bf711.jpg"
+    },
+    {
+      "name": "風の石版",
+      "url": "https://static-r.kamihimeproject.net/resources/pc/normal/5c/a4/2c93eebb4a79e124b1d2417aebcfe728af81f4cd25385ca4.jpg"
+    },
+    {
+      "name": "竜巻の石版",
+      "url": "https://static-r.kamihimeproject.net/resources/pc/normal/da/ce/2c93eebb4a79e124b1d2417aebcfe7282f1758a5769edace.jpg"
+    },
+    {
+      "name": "サイクロン・ルーン",
+      "url": "https://static-r.kamihimeproject.net/resources/pc/normal/8f/2d/2c93eebb4a79e124b1d2417aebcfe728174c8adf8ca08f2d.jpg"
+    },
+    {
+      "name": "ゲイルファング",
+      "url": "https://static-r.kamihimeproject.net/resources/pc/normal/d9/e4/2c93eebb4a79e124b1d2417aebcfe728e6d0028e820ed9e4.jpg"
+    },
+    {
+      "name": "疾風型イデア・コア",
+      "url": "https://static-r.kamihimeproject.net/resources/pc/normal/e7/25/2c93eebb4a79e124b1d2417aebcfe7287054dd607574e725.jpg"
+    },
+    {
+      "name": "風獄型イデア・コア",
+      "url": "https://static-r.kamihimeproject.net/resources/pc/normal/1f/fb/2c93eebb4a79e124b1d2417aebcfe728f64352cbeb1d1ffb.jpg"
+    },
+    {
+      "name": "雷の龍骨",
+      "url": "https://static-r.kamihimeproject.net/resources/pc/normal/db/29/2c93eebb4a79e124b1d2417aebcfe728070278f6c5a1db29.jpg"
+    },
+    {
+      "name": "轟雷の龍骨",
+      "url": "https://static-r.kamihimeproject.net/resources/pc/normal/35/e4/2c93eebb4a79e124b1d2417aebcfe728cdd2ff64a5d335e4.jpg"
+    },
+    {
+      "name": "雷の石版",
+      "url": "https://static-r.kamihimeproject.net/resources/pc/normal/5d/c4/2c93eebb4a79e124b1d2417aebcfe7289c579335ff325dc4.jpg"
+    },
+    {
+      "name": "電雷の石版",
+      "url": "https://static-r.kamihimeproject.net/resources/pc/normal/a6/ab/2c93eebb4a79e124b1d2417aebcfe7286f8fd1f2b34ea6ab.jpg"
+    },
+    {
+      "name": "ライトニング・ルーン",
+      "url": "https://static-r.kamihimeproject.net/resources/pc/normal/9a/50/2c93eebb4a79e124b1d2417aebcfe7284c8680ae23c39a50.jpg"
+    },
+    {
+      "name": "エレクファング",
+      "url": "https://static-r.kamihimeproject.net/resources/pc/normal/cb/49/2c93eebb4a79e124b1d2417aebcfe72864e2907deb5fcb49.jpg"
+    },
+    {
+      "name": "感電型イデア・コア",
+      "url": "https://static-r.kamihimeproject.net/resources/pc/normal/a4/31/2c93eebb4a79e124b1d2417aebcfe7283acf70625ad4a431.jpg"
+    }
+  ],
+  "ticketItem":
+  [
+    {
+      "name": "プレミアムガチャチケット",
+      "url": ""
+    },
+    {
+      "name": "特別チケット[SR]",
+      "url": ""
+    }
   ]
 }
