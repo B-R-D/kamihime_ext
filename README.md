@@ -9,7 +9,7 @@ All modules, except updating Raid BOSS status, retrieve game data by monitoring 
 ### Player Information Monitor
 Players' rank, EXP, AP/BP, Equipment and Gem are well displayed. All data will be updated synchronously while playing.
 ### Raid Information
-When players switch game page, KA can inform players whether Raid battles are available, through changing extension icon and highlighting in extension page. Also, players can retrieve battle status immediately by clicking the highlighted area.
+When players switch game page, KA can inform players whether Raid battles are available, through changing extension icon and different colors in extension page. Also, players can retrieve battle status immediately by clicking the BP area.
 
 **WARNING: The implementation of manually refreshing Raid information is through retrieving data INITIATIVELY, which may cause the disability of your account or IP by the server. DO NOT USE IT IF YOU DO NOT TRUST IT!**
 
@@ -28,7 +28,7 @@ Then click the button "Load unpacked extension..." on left-top of the Extensions
 ### Running
 Please click "Game Start" or open Kamihime game page, press "F12" to open devtool and switch to Kamihime_ext tab. If AS opens during the game, please click "My Page" in the left-top corner twice to refresh game data.
 ### Refresh Raid Status
-Player can refresh Raid status manually by clicking BP area in AS panel (no need to focus on game page), and BP area will be highlighted if Raid battle is available (BP point won't be updated). RED indicates there are Raid battles that players can take part in, while GREY shows there are unconfirmed Raid battles. The extension icon in the right-top corner will change synchronously.
+Player can refresh Raid status manually by clicking BP area in AS panel (no need to focus on game page), and BP will change color if Raid battle is available (BP point won't be updated). RED indicates there are Raid battles that players can take part in, while GREY shows there are unconfirmed Raid battles. The extension icon in the right-top corner will change synchronously.
 
 **WARNING: This module is NOT absolutely safe! Do not refresh too frequently in case of account banning!!**
 
