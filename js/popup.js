@@ -4,10 +4,10 @@
 const changeColor = ele => {
   $(`#${ele}`).on({
     "mouseover": function() {
-      $(`#${ele}`).css({"background-color":"#82998E", "border-style":"inset", "border-color":"#82998E", "color":"#AFFFF4"});
+      $(`#${ele}`).css({"background-color":"#82998E", "color":"#AFFFF4"});
     },
     "mouseout": function() {
-      $(`#${ele}`).css({"background-color":"#C2FFAC", "border-style":"outset", "border-color":"#7CFF73", "color":"#2A2963"});
+      $(`#${ele}`).css({"background-color":"#333333", "color":"white"});
     }
   });
 }
@@ -17,8 +17,15 @@ const main = () => {
   $("#gamestart").click(function(){
     window.open("http://www.dmm.co.jp/netgame/social/-/gadgets/=/app_id=242584/", "");
   });
-  changeColor("setting");
   $("#gamestart").text(chrome.i18n.getMessage("gameStart"));
+
+  changeColor("iteminfo");
+  $("#iteminfo").click(function(){
+    window.open("../html/item.html", "");
+  });
+  //$("#iteminfo").text(chrome.i18n.getMessage("iteminfo"));
+  
+  changeColor("setting");
   $("#setting").text(chrome.i18n.getMessage("setting"));
 }
 

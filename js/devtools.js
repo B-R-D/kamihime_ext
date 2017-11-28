@@ -7,8 +7,6 @@ const MoneyInfo = "https://r.kamihimeproject.net/v1/a_players/me/currency";
 const QuestInfo = "https://r.kamihimeproject.net/v1/a_quest_info";
 const ItemInfo = "https://r.kamihimeproject.net/v1/a_items";
 
-chrome.devtools.panels.create('Kamihime_ext', 'icon/16.png', '../html/status.html', function(panel){});
-
 //根据不同种类的数据组装道具数据包并发送
 const retrieveItemData = type => {
   $.ajax({
@@ -32,6 +30,8 @@ const retrieveItemData = type => {
       }
   });
 }
+
+chrome.devtools.panels.create('Kamihime_ext', 'icon/16.png', '../html/status.html', function(panel){});
 
 chrome.devtools.network.onRequestFinished.addListener(function(request) {
   //检查获取各种信息

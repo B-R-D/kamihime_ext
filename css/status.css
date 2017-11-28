@@ -22,7 +22,10 @@ table {
 #exp {
   text-align: center;
   border: 1px solid #996600;
+  border-radius: 4% / 50%;
+  box-shadow: 0px 0px 5px #996600;
   position: relative;
+  overflow: hidden;
 }
 #exp div {
   background-color: #996600;
@@ -38,11 +41,10 @@ table {
   background-color: #333333;
   border-radius: 15px;
   padding: 0px 7px;
-}
-#basicInfo, #itemInfo {
   display: inline-block;
   vertical-align: top;
   margin: 5px 5px;
+  box-shadow: 5px 5px 2px #000000;
 }
 #basicInfo table {
   margin: 7px 0px;
@@ -60,11 +62,7 @@ table {
   width: 80px;
   margin: 0px 30px 0px 0px;
 }
-.weapon, .num {
+.weapon {
   text-align: center;
   width: 100px;
-}
-.pic img {
-  width: 80px;
-  height: 80px;
 }

@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: DarkSlateGrey;
+}
+table {
+  font-size: 1.0em;
+  color: white;
+}
+
+#itemInfo {
+  margin: 20px auto;
+}
+#itemList {
+  min-height: 130px;
+  border-radius: 5px 15px 15px;
+  padding: 10px;
+  background-color: #333333;
+  width: 700px;
+  box-shadow: 5px 5px 2px #000000;
+  position: relative;
+  z-index: 2;
+}
+#navi {
+  display: inline-block;
+  margin: auto;
+  color: white;
+}
+.item_tab {
+  width: 100px;
+  height: 35px;
+  font-size: 1.2em;
+  border-radius: 8px 8px 0px 0px;
+  background-color: #666666;
+  padding: 3px 14px;
+  margin: 0px 5px;
+  display: inline-block;
+  box-shadow: 5px 5px 2px #000000;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+.num {
+  text-align: center;
+  width: 100px;
+}
+.pic img {
+  width: 80px;
+  height: 80px;
+}
