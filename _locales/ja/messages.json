@@ -8,6 +8,9 @@
   "gameStart": {
     "message": "ゲーム開始"
   },
+  "itemInfo": {
+    "message": "アイテム"
+  },
   "setting": {
     "message": "オプション"
   },

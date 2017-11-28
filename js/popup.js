@@ -23,7 +23,7 @@ const main = () => {
   $("#iteminfo").click(function(){
     window.open("../html/item.html", "");
   });
-  //$("#iteminfo").text(chrome.i18n.getMessage("iteminfo"));
+  $("#iteminfo").text(chrome.i18n.getMessage("itemInfo"));
   
   changeColor("setting");
   $("#setting").text(chrome.i18n.getMessage("setting"));
