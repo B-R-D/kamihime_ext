@@ -1,11 +1,11 @@
-"use_strict"
+"use_strict";
 
 const ItemInfo = "https://r.kamihimeproject.net/v1/a_items";
 
 var questInfo = {
   "has_new_raid_request": false,
   "has_unverified": false
-}
+};
 
 //根据不同种类的数据组装道具数据包并发送
 const retrieveItemData = type => {
@@ -26,7 +26,7 @@ const retrieveItemData = type => {
       chrome.runtime.sendMessage(temp_obj, function(response){});
     },
     error(jqXHR, status, errorThrown) {
-	  	  console.log(`An error occurred while retrieving ${type} data.`);
+      console.log(`An error occurred while retrieving ${type} data.`);
       }
   });
 }

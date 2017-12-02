@@ -52,5 +52,14 @@
   },
   "accessoryCount": {
     "message": "次"
+  },
+  "cure": {
+    "message": "回复道具"
+  },
+  "treasure": {
+    "message": "进阶道具"
+  },
+  "ticket": {
+    "message": "扭蛋道具"
   }
 }

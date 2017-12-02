@@ -52,5 +52,14 @@
   },
   "accessoryCount": {
     "message": "回"
+  },
+  "cure": {
+    "message": "回復アイテム"
+  },
+  "treasure": {
+    "message": "突破アイテム"
+  },
+  "ticket": {
+    "message": "ガチャアイテム"
   }
 }

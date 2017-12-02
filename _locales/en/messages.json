@@ -52,5 +52,14 @@
   },
   "accessoryCount": {
     "message": " times"
+  },
+  "cure": {
+    "message": "Cure"
+  },
+  "treasure": {
+    "message": "Evolution"
+  },
+  "ticket": {
+    "message": "Gacha"
   }
 }

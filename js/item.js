@@ -39,20 +39,28 @@ const updateItemInfo = () => {
     }
     return temp;
   });
-  $("#treasureItem").find("tr.pic").html(function() {
-    let temp;
-    for(let i=0; i<itemInfo.treasureItem.length; ++i) {
-      temp = temp +`<td><img src="${itemInfo.treasureItem[i].pic}" title="${itemInfo.treasureItem[i].name}"></td>`;
+
+
+  //更新属性升等道具图片和数量
+  for(let i=0, j=0; i<itemInfo.treasureItem.length; ++i) {
+    if(i % 8 === 0 && i < 49) {
+      ++j;
+      $("#treasureItem").find(`#pic_${j}`).empty();
     }
-    return temp;
-  });
-  $("#treasureItem").find("tr.num").html(function() {
-    let temp;
-    for(let i=0; i<itemInfo.treasureItem.length; ++i) {
-      temp = temp + `<td>${itemInfo.treasureItem[i].num}</td>`;
+    $("#treasureItem").find(`#pic_${j}`).html(function() {
+      return $("#treasureItem").find(`#pic_${j}`).html() + `<td><img src="${itemInfo.treasureItem[i].pic}" title="${itemInfo.treasureItem[i].name}"></td>`;
+    });
+  }
+  for(let i=0, j=0; i<itemInfo.treasureItem.length; ++i) {
+    if(i % 8 === 0 && i < 49) {
+      ++j;
+      $("#treasureItem").find(`#num_${j}`).empty();
     }
-    return temp;
-  });
+    $("#treasureItem").find(`#num_${j}`).html(function() {
+      return $("#treasureItem").find(`#num_${j}`).html() + `<td>${itemInfo.treasureItem[i].num}</td>`;
+    });
+  }
+
   $("#ticketItem").find("tr.pic").html(function() {
     let temp;
     for(let i=0; i<itemInfo.ticketItem.length; ++i) {
@@ -158,7 +166,17 @@ const pageClickEvent = () => {
   });
 }
 
+//i18n本地化替换
+const localizer = () => {
+  let htmlStr = $("body").html().toString();
+  let localeStr = htmlStr.replace(/__MSG_(\w+)__/g,function(message, str) {
+    return chrome.i18n.getMessage(str);
+  });
+  $("body").html(localeStr);
+}
+
 const main = () => {
+  localizer();
   //直接获取道具，应该改成点击后获取
   chrome.runtime.sendMessage("retrieveiteminfo", function(response){});
   chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
@@ -170,7 +188,7 @@ const main = () => {
         break;
     }
   });
-
+  //页面特效部分
   $("#cureItem, #treasureItem, #ticketItem").hide();
   pageClickEvent();
 }
