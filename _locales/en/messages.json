@@ -61,5 +61,8 @@
   },
   "ticket": {
     "message": "Gacha"
+  },
+  "exchange": {
+    "message": "Exchange"
   }
 }

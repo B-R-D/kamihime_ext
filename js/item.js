@@ -43,19 +43,15 @@ const updateItemInfo = () => {
 
   //更新属性升等道具图片和数量
   for(let i=0, j=0; i<itemInfo.treasureItem.length; ++i) {
-    if(i % 8 === 0 && i < 49) {
+    //新的分组条件在此处加入
+    if((i < 49 && i % 8 === 0) || (i === 54)) {
       ++j;
       $("#treasureItem").find(`#pic_${j}`).empty();
+      $("#treasureItem").find(`#num_${j}`).empty();
     }
     $("#treasureItem").find(`#pic_${j}`).html(function() {
       return $("#treasureItem").find(`#pic_${j}`).html() + `<td><img src="${itemInfo.treasureItem[i].pic}" title="${itemInfo.treasureItem[i].name}"></td>`;
     });
-  }
-  for(let i=0, j=0; i<itemInfo.treasureItem.length; ++i) {
-    if(i % 8 === 0 && i < 49) {
-      ++j;
-      $("#treasureItem").find(`#num_${j}`).empty();
-    }
     $("#treasureItem").find(`#num_${j}`).html(function() {
       return $("#treasureItem").find(`#num_${j}`).html() + `<td>${itemInfo.treasureItem[i].num}</td>`;
     });
@@ -146,6 +142,7 @@ const updateItemData = res => {
 
 //页面元素事件特效等
 const pageClickEvent = () => {
+  //标签点击特效
   $("#cure").click(function() {
     $("#treasureItem, #ticketItem").hide();
     $("#cure").css("background-color", "#333333");
@@ -156,6 +153,7 @@ const pageClickEvent = () => {
     $("#cureItem, #ticketItem").hide();
     $("#treasure").css("background-color", "#333333");
     $("#cure, #ticket").css("background-color", "#666666");
+    $("#treasureItem").find(".pic, .num").hide();
     $("#treasureItem").fadeIn(250);
   });
   $("#ticket").click(function() {
@@ -163,6 +161,36 @@ const pageClickEvent = () => {
     $("#ticket").css("background-color", "#333333");
     $("#treasure, #cure").css("background-color", "#666666");
     $("#ticketItem").fadeIn(250);
+  });
+
+  //元素点击特效
+  $("#wind").click(function() {
+    $("#treasureItem").find(".pic, .num").hide();
+    $("#pic_1, #num_1").fadeIn(250);
+  });
+  $("#thunder").click(function() {
+    $("#treasureItem").find(".pic, .num").hide();
+    $("#pic_2, #num_2").fadeIn(250);
+  });
+  $("#water").click(function() {
+    $("#treasureItem").find(".pic, .num").hide();
+    $("#pic_3, #num_3").fadeIn(250);
+  });
+  $("#fire").click(function() {
+    $("#treasureItem").find(".pic, .num").hide();
+    $("#pic_4, #num_4").fadeIn(250);
+  });
+  $("#light").click(function() {
+    $("#treasureItem").find(".pic, .num").hide();
+    $("#pic_5, #num_5").fadeIn(250);
+  });
+  $("#dark").click(function() {
+    $("#treasureItem").find(".pic, .num").hide();
+    $("#pic_6, #num_6").fadeIn(250);
+  });
+  $("#evolution").click(function() {
+    $("#treasureItem").find(".pic, .num").hide();
+    $("#pic_7, #num_7").fadeIn(250);
   });
 }
 

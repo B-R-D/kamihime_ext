@@ -61,5 +61,8 @@
   },
   "ticket": {
     "message": "扭蛋道具"
+  },
+  "exchange": {
+    "message": "交换道具"
   }
 }

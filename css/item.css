@@ -10,13 +10,12 @@ table {
   font-size: 1.0em;
   color: white;
 }
-
 #itemInfo {
   margin: 20px auto;
   display: inline-block;
 }
 #itemList {
-  border-radius: 5px 15px 15px;
+  border-radius: 5px 5px 15px 15px;
   padding: 15px;
   background-color: #333333;
   box-shadow: 5px 5px 2px #000000;
@@ -45,6 +44,17 @@ table {
   text-overflow: clip;
   overflow: hidden;
   vertical-align: bottom;
+}
+#element {
+  position: relative;
+  text-align: center;
+  display: inline-block;
+}
+#element img {
+  margin: 5px;
+  width: 46px;
+  height: 52px;
+  cursor: pointer;
 }
 .num {
   text-align: center;

@@ -61,5 +61,8 @@
   },
   "ticket": {
     "message": "ガチャアイテム"
+  },
+  "exchange": {
+    "message": "交換アイテム"
   }
 }
