@@ -25,13 +25,13 @@
     "run_at": "document_start",
     "js": ["js/restriction.js"],
     "matches": [
-      "http://pc-play.games.dmm.co.jp/play/imys_r/"
+      "http://osapi.dmm.com/*"
     ]
   },
   {
     "js": ["js/jquery-3.2.1.min.js", "js/main.js"],
     "matches": [
-      "http://pc-play.games.dmm.co.jp/play/kamipror/"
+      "http://pc-play.games.dmm.co.jp/play/*"
     ]
   },
   {
