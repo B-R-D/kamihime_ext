@@ -1,4 +1,4 @@
-[[简体中文]](https://github.com/B-R-D/kamihime_ext/blob/master/README-zh-CN.md) | [[English]](https://github.com/B-R-D/kamihime_ext/blob/master/README.md)
+[[简体中文]](https://github.com/Sunsetra/blob/master/README-zh-CN.md) | [[English]](https://github.com/Sunsetra/kamihime_ext/blob/master/README.md)
 
 # 神姬助手
 这是用于DMM网页游戏神姬计划(神姫PROJECT)的游戏辅助工具。
@@ -18,11 +18,11 @@
 安装前请将Chrome浏览器升级至最新版本。由于使用了一些devtool的API，因此不保证在其他浏览器（Firefox，Edge等）上能正常运行。
 ### 安装方法
 #### Windows
-下载并解压[这里](https://github.com/B-R-D/kamihime_ext/releases)的压缩包，然后点击Chrome扩展程序页面左上角“加载已解压的扩展程序...”，并定位到存放本程序的文件夹即可。
+下载并解压[这里](https://github.com/Sunsetra/kamihime_ext/releases)的压缩包，然后点击Chrome扩展程序页面左上角“加载已解压的扩展程序...”，并定位到存放本程序的文件夹即可。
 #### Linux
 在终端中运行
 ```shell
-git clone https://github.com/B-R-D/kamihime_ext.git
+git clone https://github.com/Sunsetra/kamihime_ext.git
 ```
 然后点击Chrome扩展程序页面左上角“加载已解压的扩展程序...”，并定位到存放本程序的文件夹即可。
 ### 运行方法
