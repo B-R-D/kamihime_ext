@@ -1,4 +1,4 @@
-[[简体中文]](https://github.com/Rakujitsu/kamihime_ext/blob/master/README-zh-CN.md) | [[English]](https://github.com/Rakujitsu/kamihime_ext/blob/master/README.md)
+[[简体中文]](https://github.com/Sunsetra/kamihime_ext/edit/master/README-zh-CN.md) | [[English]](https://github.com/Sunsetra/kamihime_ext/edit/master/README.md)
 
 # Kamihime Assistant
 KA is an assistant tool for browser game Kamihime Project.
@@ -18,11 +18,11 @@ When players switch game page, KA can inform players whether Raid battles are av
 ### Running Environment
 Please keep your browser up-to-date before installing. Some APIs are only available in Chrome devtool, which means the performance on other platforms (such as Firefox, Edge and etc.) are not ensured.
 #### Windows
-Download and unpack [this](https://github.com/Rakujitsu/kamihime_ext/releases) ZIP archive. Then click the button "Load unpacked extension..." on left-top of the Extensions page and locate the folder that contains KA.
+Download and unpack [this](https://github.com/Sunsetra/kamihime_ext/releases) ZIP archive. Then click the button "Load unpacked extension..." on left-top of the Extensions page and locate the folder that contains KA.
 #### Linux
 Running the code below in terminal
 ```shell
-git clone https://github.com/Rakujitsu/kamihime_ext.git
+git clone https://github.com/Sunsetra/kamihime_ext.git
 ```
 Then click the button "Load unpacked extension..." on left-top of the Extensions page and locate the folder that contains KA.
 ### Running
