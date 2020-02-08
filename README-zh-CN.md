@@ -1,4 +1,4 @@
-[[简体中文]](https://github.com/Sunsetra/blob/master/README-zh-CN.md) | [[English]](https://github.com/Sunsetra/kamihime_ext/blob/master/README.md)
+[[简体中文]](https://github.com/Sunsetra/kamihime_ext/blob/master/README-zh-CN.md) | [[English]](https://github.com/Sunsetra/kamihime_ext/blob/master/README.md)
 
 # 神姬助手
 这是用于DMM网页游戏神姬计划(神姫PROJECT)的游戏辅助工具。
