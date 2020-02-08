@@ -1,4 +1,4 @@
-[[简体中文]](https://github.com/Sunsetra/kamihime_ext/edit/master/README-zh-CN.md) | [[English]](https://github.com/Sunsetra/kamihime_ext/edit/master/README.md)
+[[简体中文]](https://github.com/Sunsetra/kamihime_ext/blob/master/README-zh-CN.md) | [[English]](https://github.com/Sunsetra/kamihime_ext/blob/master/README.md)
 
 # Kamihime Assistant
 KA is an assistant tool for browser game Kamihime Project.
